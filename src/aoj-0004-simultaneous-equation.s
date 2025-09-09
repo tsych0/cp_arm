@@ -72,8 +72,29 @@ _solve:
         fmul    d7, d3, d2 // dc
         fsub    d10, d6, d7 // af - dc
 
+//      value of x and y
         fdiv    d11, d9, d8
         fdiv    d12, d10, d8
+
+        // d1 = 0.0001
+        fmov    d1, #1.0
+        fmov    d2, #10.0
+        fmul    d2, d2, d2
+        fdiv    d1, d1, d2
+        fdiv    d1, d1, d2
+
+        // d2 = abs(d11)
+        fabs    d2, d11
+        fcmp    d2, d1
+        bgt     not_zero_1
+        fmov    d11, #0.0
+not_zero_1:
+        // d2 = abs(d12)
+        fabs    d2, d12
+        fcmp    d2, d1
+        bgt     not_zero_2
+        fmov    d12, #0.0
+not_zero_2:
         adr     x0, print$floats
         stp     d11, d12, [sp]
         bl      _printf
