@@ -1,10 +1,11 @@
 // Created by Ayush Biswas at 2025/09/05 18:49
 // https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0003
         .global     _main
-
         .text
+
 scan$t:         .asciz  "%ld"
-        .align 2
+                .align 2
+
 _main:
         mov     fp, sp
         sub     sp, sp, #16 // can store upto two quads     
@@ -31,7 +32,8 @@ solve_again:
 scan$abc:       .asciz  "%d %d %d"
 YES:            .asciz  "YES\n"
 NO:             .asciz  "NO\n"
-        .align  2
+                .align  2
+
 _solve:
         stp     fp, lr, [sp, #-16]!
         mov     fp, sp
@@ -59,13 +61,13 @@ _solve:
         ldr     w0, [fp, solve.a]
         ldr     w1, [fp, solve.b]
         ldr     w2, [fp, solve.c]
-
+        
         mul     w0, w0, w0
         mul     w1, w1, w1
         mul     w2, w2, w2
-
+        //      a^2 + b^2
         add     w0, w0, w1
-        cmp     w0, w2
+        cmp     w0, w2  // == c^2 ?
         beq     is_right_triangle
         adr     x0, NO
         b       print_res

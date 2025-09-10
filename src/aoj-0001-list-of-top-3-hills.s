@@ -1,9 +1,7 @@
 // Created by Ayush Biswas at 2025/09/05 16:38
 // https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0001
         .global     _main
-
         .text
-        .align  2
 _main:
         bl      _solve
 
@@ -12,8 +10,8 @@ _main:
 
 scan$int:       .asciz  "%d"
 print$int:      .asciz  "%d\n"
+                .align  2
 
-        .align  2
 _solve:
         stp     fp, lr, [sp, #-16]!
         stp     x19, x20, [sp, #-16]!
@@ -57,7 +55,6 @@ print_next_value:
         ldp     fp, lr, [sp], #16
         ret
 
-        .align  2
 _comparator:    // comparator for sorting in reverse
         ldr     w2, [x0]
         ldr     w3, [x1]

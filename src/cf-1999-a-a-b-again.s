@@ -5,9 +5,9 @@
 
         .text
 
-Scan$t:        .asciz  "%ld"
+Scan$t:         .asciz  "%ld"
+                .align  2
 
-        .align  2
 _main:
         mov     fp, sp
         sub     sp, sp, #16 // can store upto two quads     
@@ -31,8 +31,8 @@ solveAgain:
 
 Scan$n:         .asciz  "%ld"
 Print$res:      .asciz  "%ld\n"
-
-        .align  2
+                .align  2
+                
 _solve:
         stp     fp, lr, [sp, #-16]!
         mov     fp, sp

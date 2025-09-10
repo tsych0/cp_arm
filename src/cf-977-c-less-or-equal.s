@@ -1,9 +1,7 @@
 // Created by Ayush Biswas at 2025/09/03 23:27
 // https://codeforces.com/problemset/problem/977/C
         .global     _main
-
         .text
-        .align  2
 _main:
         bl      _solve
 
@@ -13,8 +11,8 @@ _main:
 scan$nk:        .asciz  "%d %d"
 scan$ai:        .asciz  "%d"
 print$res:      .asciz  "%d\n"
+                .align  2
 
-        .align  2
 _solve:
         stp fp, lr, [sp, #-16]!
         stp x19, x20, [sp, #-16]!

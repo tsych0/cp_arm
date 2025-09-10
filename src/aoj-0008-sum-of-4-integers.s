@@ -1,9 +1,7 @@
 // Created by Ayush Biswas at 2025/09/08 20:56
 // https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0008
         .global     _main
-
         .text
-        .align 2
 _main:
 
 solve_again:
@@ -15,8 +13,8 @@ solve_again:
 
 scan$n:         .asciz  "%d"
 print$res:      .asciz  "%d\n"
+                .align  2
 
-        .align  2
 _solve:
         stp     fp, lr, [sp, #-16]!
         mov     fp, sp

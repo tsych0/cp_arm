@@ -4,7 +4,7 @@
 
         .text
 scan$t:         .asciz  "%ld"
-        .align 2
+                .align 2
 _main:
         mov     fp, sp
         sub     sp, sp, #16 // can store upto two quads     
@@ -18,13 +18,16 @@ solve_again:
         bl      _solve
         cbz     x0, solve_again
 
+        mov     x0, x20
+        bl      _free
+
         mov     x0, #0
         bl      _exit
 
 scan$n:         .asciz  "%d"
 print$res:      .asciz  "%d\n"
-
-        .align  2
+                .align  2
+                
 _solve:
         stp     fp, lr, [sp, #-16]!
         mov     fp, sp

@@ -7,8 +7,8 @@
 Scan$t:         .asciz  "%ld"
 Scan$abc:       .asciz  "%d %d %d"
 Print$res:      .asciz  "%d\n"
-
-        .align  2
+                .align  2
+                
 _main:
         mov     fp, sp
         sub     sp, sp, #16 // can store upto two quads     

@@ -7,6 +7,7 @@ scan$t:         .asciz  "%ld"
 scan$point:     .asciz  "%lf %lf"
 print$point:    .asciz  "%.3f %.3f "
 print$distance: .asciz  "%.3f\n"
+                .align 2
 
 Point:  
         point.x        = 0
@@ -19,7 +20,6 @@ Line:
         line.c          = line.b + 8
         line.size       = line.c + 8
 
-        .align 2
 _main:
         mov     fp, sp
         sub     sp, sp, #16 // can store upto two quads     
@@ -94,6 +94,19 @@ _solve:
         adr     x0, print$distance
         bl      _printf
 
+        ldr     x0, [fp, solve.p1]
+        bl      _free
+        ldr     x0, [fp, solve.p2]
+        bl      _free
+        ldr     x0, [fp, solve.p3]
+        bl      _free
+        ldr     x0, [fp, solve.line1]
+        bl      _free
+        ldr     x0, [fp, solve.line2]
+        bl      _free
+        ldr     x0, [fp, solve.center]
+        bl      _free
+
         add     sp, sp, #64
         ldp     fp, lr, [sp], #16
         ret
@@ -137,8 +150,8 @@ _read_point:
         ldp     fp, lr, [sp], #16
         ret
 
-debug$point:    .asciz  "%.3f %.3f "
-        .align  2
+debug$point:    .asciz  "Point(%.3f, %.3f)\n"
+                .align  2
 /*
 function point
         prints point on stdout
