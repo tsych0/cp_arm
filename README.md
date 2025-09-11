@@ -9,7 +9,6 @@ AOJ provides full public test cases for their problems, making it easier to veri
 - `src/` — Contains all assembly solutions, named according to the problem source and title (see `config.toml` for naming conventions).
 - `main.s` — Template/main entry point for assembly programs.
 - `fetch_test_cases.py` — Script to fetch AOJ test cases for local testing.
-- `submit.py` — Scratch file for writing and submitting Python solutions (for marking problems as solved on AOJ).
 - `config.toml` — Configuration for naming, templates, and workflow toggles.
 
 ## Getting Started
