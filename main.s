@@ -2,7 +2,8 @@
 
         .text
 scan$t:         .asciz  "%ld"
-        .align 2
+                .align  2
+
 _main:
         mov     fp, sp
         sub     sp, sp, #16 // can store upto two quads     

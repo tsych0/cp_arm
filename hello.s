@@ -1,9 +1,10 @@
         .global     _main
 
         .text
-hwStr:  .asciz  "Hello, World!\n"
 
+hwStr:  .asciz  "Hello, World!\n"
         .align  2
+
 _main:
         adr    x0, hwStr
         bl      _printf
